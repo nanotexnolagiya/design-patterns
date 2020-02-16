@@ -1,16 +1,16 @@
 import { ICar } from './cars/Car'
-import ChinaMotors from './cars/ChinaMotors'
-import Cadilac from './cars/Cadilac'
+import BMW from './cars/BMW'
+import Porsche from './cars/Porsche'
 
 export default class CarFactory {
-  private static readonly ChinaMotors_CAR: string = 'bmw'
+  private static readonly BMW_CAR: string = 'bmw'
   private static readonly PORSCHE_CAR: string = 'porsche'
 
   public createCar(carBrand: string): ICar {
-    if (carBrand === CarFactory.ChinaMotors_CAR) {
-      return new ChinaMotors()
+    if (carBrand === CarFactory.BMW_CAR) {
+      return new BMW()
     } else if (carBrand === CarFactory.PORSCHE_CAR) {
-      return new Cadilac()
+      return new Porsche()
     } else {
       throw new Error('Not found this brand car')
     }

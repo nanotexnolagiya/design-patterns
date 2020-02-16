@@ -1,18 +1,18 @@
 import { ILaptop } from './laptops/Laptop'
-import Asus from './laptops/Asus'
+import Lenova from './laptops/Lenova'
 import Macbook from './laptops/Macbook'
 
-export interface ILaptopFactory {
-  createAsus(name: string): ILaptop
-  createMacbook(name: string): ILaptop
-}
+export default class LaptopFactory {
+  private static readonly ASUS: string = 'asus'
+  private static readonly MACBOOK: string = 'mackbook'
 
-export default class LaptopFactory implements ILaptopFactory {
-  createAsus(name: string): ILaptop {
-    return new Asus(name)
-  }
-
-  createMacbook(name: string): ILaptop {
-    return new Macbook(name)
+  public createLaptop(laptopBrand: string): ILaptop {
+    if (laptopBrand === LaptopFactory.ASUS) {
+      return new Lenova()
+    } else if (laptopBrand === LaptopFactory.MACBOOK) {
+      return new Macbook()
+    } else {
+      throw new Error('Not found this brand laptop')
+    }
   }
 }

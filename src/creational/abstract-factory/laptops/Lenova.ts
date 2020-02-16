@@ -1,6 +1,6 @@
 import { ILaptop } from './Laptop'
-export default class Macbook implements ILaptop {
-  name: string = 'Macbook'
+export default class Lenova implements ILaptop {
+  name: string = 'Lenova'
 
   getName(): string {
     return this.name

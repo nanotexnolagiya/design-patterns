@@ -1,10 +1,13 @@
-import AbstractFactory from './AbstractFactory'
+import { IAbstractFactory } from './AbstractFactory'
+import USAFactory from './USAFactory'
+import ChinaFactory from './ChinaFactory'
+import { ICar } from './cars/Car'
 
-const factory = new AbstractFactory()
-const carFactory = factory.getCarFactory()
-const laptopFactory = factory.getLaptopFactory()
+const usaFactory: IAbstractFactory = new USAFactory()
+const chinaFactory: IAbstractFactory = new ChinaFactory()
 
-const bmwX5 = carFactory.createBMW('BMW X5')
-const macbookAir = laptopFactory.createMacbook('Mackbook Air')
+const usaCar: ICar = usaFactory.createCar()
+const chinaCar: ICar = chinaFactory.createCar()
 
-console.log(bmwX5.getName(), macbookAir.getName())
+
+console.log(usaCar.getName(), chinaCar.getName())
